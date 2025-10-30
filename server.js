@@ -18,18 +18,13 @@ app.use(express.json())
 
 // --- CORS Configuration Block ---
 
-// 1. Define your allowed origins
+// 1. Define your allowed origins (CLEANED - NO HIDDEN SPACES)
 const allowedOrigins = [
-  // Your live Vercel frontend URL
-  "https://doctor-frontend-five.vercel.app", 
-
-  // Your live Vercel admin URL
-  "https://doctor-admin1.vercel.app", 
-
-  // Your local development URLs
+  "https://doctor-frontend-five.vercel.app",
+  "https://doctor-admin1.vercel.app",
   "http://localhost:3000",
-  "http://localhost:5173", // Default for Vite (frontend)
-  "http://localhost:5174"  // Default for Vite (admin)
+  "http://localhost:5173",
+  "http://localhost:5174"
 ];
 
 const corsOptions = {
