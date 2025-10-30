@@ -15,7 +15,39 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+
+// --- CORS Configuration Block ---
+
+// 1. Define your allowed origins
+const allowedOrigins = [
+  // Add your Vercel frontend URL here
+  "https://YOUR-FRONTEND-URL.vercel.app", 
+
+  // Add your local development URLs
+  "http://localhost:3000",
+  "http://localhost:5173" // Default for Vite
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman or mobile apps)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      // If the origin is in our whitelist, allow it
+      callback(null, true);
+    } else {
+      // Otherwise, block it
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
+
+// 2. Use the new CORS options
+app.use(cors(corsOptions));
+
+// --- End of CORS Block ---
+
 
 // api endpoints
 app.use("/api/user", userRouter)
