@@ -20,13 +20,13 @@ app.use(express.json())
 
 // 1. Define your allowed origins
 const allowedOrigins = [
-  // Add your Vercel USER frontend URL here
-  "https://YOUR-FRONTEND-URL.vercel.app", 
+  // Your live Vercel frontend URL
+  "https://doctor-frontend-five.vercel.app", 
 
-  // Add your Vercel ADMIN frontend URL here
-  "https://YOUR-ADMIN-URL.vercel.app", 
+  // Your live Vercel admin URL
+  "https://doctor-admin1.vercel.app", 
 
-  // Add your local development URLs
+  // Your local development URLs
   "http://localhost:3000",
   "http://localhost:5173", // Default for Vite (frontend)
   "http://localhost:5174"  // Default for Vite (admin)
